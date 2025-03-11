@@ -1,4 +1,4 @@
-﻿using Frends.LDAP.SearchObjects.Definitions;
+﻿﻿using Frends.LDAP.SearchObjects.Definitions;
 using System.ComponentModel;
 using Novell.Directory.Ldap;
 using System;
@@ -75,31 +75,9 @@ public class LDAP
                     {
                         LdapAttribute attribute = ienum.Current;
                         var attributeName = attribute.Name;
-                        string attributeVal;
-
-                        var def = input.Attributes.Find(a => a.Key.Equals(attributeName, StringComparison.OrdinalIgnoreCase));
-
-                        if (def != null && def.ReturnType.Equals("Byte", StringComparison.OrdinalIgnoreCase))
-                        {
-                            byte[] bytes = attribute.ByteValue;
-                            if (attributeName.Equals("objectGUID", StringComparison.OrdinalIgnoreCase))
-                            {
-                                Guid guid = new Guid(bytes);
-                                attributeVal = guid.ToString();
-                            }
-                            else
-                            {
-                                attributeVal = BitConverter.ToString(bytes).Replace("-", "");
-                            }
-                        }
-                        else
-                        {
-                            attributeVal = attribute.StringValue;
-                        }
-
+                        var attributeVal = attribute.StringValue;
                         attributeList.Add(new AttributeSet { Key = attributeName, Value = attributeVal });
                     }
-
 
                     searchResults.Add(new SearchResult() { DistinguishedName = entry.Dn, AttributeSet = attributeList });
                 }
