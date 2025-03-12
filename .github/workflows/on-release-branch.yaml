@@ -28,7 +28,7 @@ jobs:
             dotnet build --configuration Release Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}.csproj /p:Version=$GITHUB_REF_NAME
             dotnet pack --configuration Release Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}.csproj --include-source --output Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}/bin/Release /p:Version=$GITHUB_REF_NAME
 
-        - name: Debug: Check packed files
+        - name: Debug Check packed files
           run: ls -l Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}/bin/Release/
 
         - name: Upload binaries to release
