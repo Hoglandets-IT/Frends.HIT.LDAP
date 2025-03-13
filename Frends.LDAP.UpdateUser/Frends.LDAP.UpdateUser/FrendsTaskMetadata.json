@@ -1,7 +1,7 @@
 {
   "Tasks": [
     {
-      "TaskMethod": "Frends.LDAP.UpdateUser.LDAP.UpdateUser"
+      "TaskMethod": "Frends.HIT.LDAP.UpdateUser.LDAP.UpdateUser"
     }
   ]
 }
