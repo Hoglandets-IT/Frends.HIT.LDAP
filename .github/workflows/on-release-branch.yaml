@@ -27,10 +27,20 @@ jobs:
             dotnet restore Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}.csproj
             dotnet build --configuration Release Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}.csproj /p:Version=$GITHUB_REF_NAME
             dotnet pack --configuration Release Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}.csproj --include-source --output Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}/bin/Release /p:Version=$GITHUB_REF_NAME
-
-        - name: Debug Check packed files
+        
+        - name: Debug: Check packed files
           run: ls -l Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}/bin/Release/
 
+        - name: Push NuGet package
+          run: |
+            dotnet nuget add source --name hit-registry --store-password-in-clear-text \
+              --username ${{ secrets.FRENDS_NUGET_V2_FEED_USER }} \
+              --password "${{ secrets.FRENDS_NUGET_V2_FEED_KEY }}" \
+              ${{ secrets.FRENDS_NUGET_V2_FEED_URL }}
+
+            dotnet nuget push --source hit-registry \
+              Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}/bin/Release/*.nupkg --skip-duplicate
+        
         - name: Upload binaries to release
           uses: svenstaro/upload-release-action@v2
           with:
