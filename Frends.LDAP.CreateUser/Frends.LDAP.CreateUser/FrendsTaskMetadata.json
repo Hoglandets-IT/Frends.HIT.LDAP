@@ -1,7 +1,7 @@
 {
   "Tasks": [
     {
-      "TaskMethod": "Frends.LDAP.CreateUser.LDAP.CreateUser"
+      "TaskMethod": "Frends.HIT.LDAP.CreateUser.LDAP.CreateUser"
     }
   ]
 }

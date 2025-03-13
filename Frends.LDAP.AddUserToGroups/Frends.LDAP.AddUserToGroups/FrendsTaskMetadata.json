@@ -1,7 +1,7 @@
 {
   "Tasks": [
     {
-      "TaskMethod": "Frends.LDAP.AddUserToGroups.LDAP.AddUserToGroups"
+      "TaskMethod": "Frends.HIT.LDAP.AddUserToGroups.LDAP.AddUserToGroups"
     }
   ]
 }
