@@ -3,9 +3,6 @@ using System.ComponentModel;
 
 namespace Frends.HIT.LDAP.SearchObjects.Definitions;
 
-/// <summary>
-/// Input parameters.
-/// </summary>
 public class Input
 {
         /// <summary>
@@ -104,4 +101,4 @@ public class Input
         String,
         Byte
     }
-}
+
