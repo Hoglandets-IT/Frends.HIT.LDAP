@@ -16,8 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Frends.HIT.LDAP.UpdateUser\Frends.HIT.LDAP.UpdateUser.csproj" />
+    <ProjectReference Include="..\Frends.LDAP.UpdateUser\Frends.LDAP.UpdateUser.csproj" />
   </ItemGroup>
 
 </Project>
+
 

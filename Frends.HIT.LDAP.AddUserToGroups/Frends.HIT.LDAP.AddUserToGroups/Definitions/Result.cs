@@ -1,4 +1,4 @@
-﻿namespace Frends.HIT.LDAP.AddUserToGroups.Definitions;
+﻿namespace Frends.LDAP.AddUserToGroups.Definitions;
 
 /// <summary>
 /// Task's result.
@@ -37,3 +37,4 @@ public class Result
         GroupDistinguishedName = groupDistinguishedName;
     }
 }
+

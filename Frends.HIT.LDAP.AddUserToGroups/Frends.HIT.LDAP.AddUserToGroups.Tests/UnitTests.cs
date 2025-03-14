@@ -1,7 +1,7 @@
-﻿namespace Frends.HIT.LDAP.AddUserToGroups.Tests;
+﻿namespace Frends.LDAP.AddUserToGroups.Tests;
 
 using NUnit.Framework;
-using Frends.HIT.LDAP.AddUserToGroups.Definitions;
+using Frends.LDAP.AddUserToGroups.Definitions;
 using Novell.Directory.Ldap;
 
 [TestFixture]
@@ -164,3 +164,4 @@ public class UnitTests
         conn.Disconnect();
     }
 }
+

@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-namespace Frends.HIT.LDAP.UpdateUser.Definitions;
+namespace Frends.LDAP.UpdateUser.Definitions;
 
 /// <summary>
 /// Connection parameters.
@@ -44,3 +44,4 @@ public class Connection
     [PasswordPropertyText]
     public string Password { get; set; }
 }
+

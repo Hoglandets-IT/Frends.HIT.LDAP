@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-namespace Frends.HIT.LDAP.SearchObjects.Definitions;
+namespace Frends.LDAP.SearchObjects.Definitions;
 
 /// <summary>
 /// Connection parameters.
@@ -44,3 +44,4 @@ public class Connection
     [PasswordPropertyText]
     public string Password { get; set; }
 }
+

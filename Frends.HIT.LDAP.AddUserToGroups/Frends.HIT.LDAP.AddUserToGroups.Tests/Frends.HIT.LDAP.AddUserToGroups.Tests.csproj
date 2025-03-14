@@ -26,8 +26,9 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Frends.HIT.LDAP.AddUserToGroups\Frends.HIT.LDAP.AddUserToGroups.csproj" />
+    <ProjectReference Include="..\Frends.LDAP.AddUserToGroups\Frends.LDAP.AddUserToGroups.csproj" />
   </ItemGroup>
 
 </Project>
+
 

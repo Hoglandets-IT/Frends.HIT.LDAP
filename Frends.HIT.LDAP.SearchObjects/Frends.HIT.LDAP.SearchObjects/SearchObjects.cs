@@ -1,11 +1,11 @@
-﻿﻿﻿using Frends.HIT.LDAP.SearchObjects.Definitions;
+﻿﻿﻿using Frends.LDAP.SearchObjects.Definitions;
 using System.ComponentModel;
 using Novell.Directory.Ldap;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace Frends.HIT.LDAP.SearchObjects;
+namespace Frends.LDAP.SearchObjects;
 
 /// <summary>
 /// LDAP task.
@@ -14,7 +14,7 @@ public class LDAP
 {
     /// <summary>
     /// Search objects from Active Directory.
-    /// [Documentation](https://tasks.frends.com/tasks/frends-tasks/Frends.HIT.LDAP.SearchObjects)
+    /// [Documentation](https://tasks.frends.com/tasks/frends-tasks/Frends.LDAP.SearchObjects)
     /// </summary>
     /// <param name="input">Input parameters.</param>
     /// <param name="connection">Connection parameters.</param>
@@ -144,3 +144,4 @@ public class LDAP
         };
     }
 }
+

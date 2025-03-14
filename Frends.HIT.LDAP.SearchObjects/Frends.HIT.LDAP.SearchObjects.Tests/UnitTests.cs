@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Frends.HIT.LDAP.SearchObjects.Definitions;
+using Frends.LDAP.SearchObjects.Definitions;
 using Novell.Directory.Ldap;
-namespace Frends.HIT.LDAP.SearchObjects.Tests;
+namespace Frends.LDAP.SearchObjects.Tests;
 
 [TestClass]
 public class UnitTests
@@ -550,3 +550,4 @@ public class UnitTests
         conn.Disconnect();
     }
 }
+

@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Frends.HIT.LDAP.RemoveUserFromGroups.Definitions;
+using Frends.LDAP.RemoveUserFromGroups.Definitions;
 using Novell.Directory.Ldap;
-namespace Frends.HIT.LDAP.RemoveUserFromGroups.Tests;
+namespace Frends.LDAP.RemoveUserFromGroups.Tests;
 
 [TestClass]
 public class UnitTests
@@ -144,3 +144,4 @@ public class UnitTests
         }
     }
 }
+

@@ -1,10 +1,10 @@
-﻿# Frends.HIT.LDAP.DeleteUser
+﻿# Frends.LDAP.DeleteUser
 Frends LDAP task to delete a user from Active Directory.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) 
-[![Build](https://github.com/FrendsPlatform/Frends.HIT.LDAP/actions/workflows/DeleteUser_build_and_test_on_main.yml/badge.svg)](https://github.com/FrendsPlatform/Frends.HIT.LDAP/actions)
-![MyGet](https://img.shields.io/myget/frends-tasks/v/Frends.HIT.LDAP.DeleteUser)
-![Coverage](https://app-github-custom-badges.azurewebsites.net/Badge?key=FrendsPlatform/Frends.HIT.LDAP/Frends.HIT.LDAP.DeleteUser|main)
+[![Build](https://github.com/FrendsPlatform/Frends.LDAP/actions/workflows/DeleteUser_build_and_test_on_main.yml/badge.svg)](https://github.com/FrendsPlatform/Frends.LDAP/actions)
+![MyGet](https://img.shields.io/myget/frends-tasks/v/Frends.LDAP.DeleteUser)
+![Coverage](https://app-github-custom-badges.azurewebsites.net/Badge?key=FrendsPlatform/Frends.LDAP/Frends.LDAP.DeleteUser|main)
 
 # Installing
 
@@ -28,3 +28,4 @@ Run tests
 Create a NuGet package
 
 `dotnet pack --configuration Release`
+

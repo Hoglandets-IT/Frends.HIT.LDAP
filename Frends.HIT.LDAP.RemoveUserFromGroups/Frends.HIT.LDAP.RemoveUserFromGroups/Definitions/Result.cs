@@ -1,4 +1,4 @@
-﻿namespace Frends.HIT.LDAP.RemoveUserFromGroups.Definitions;
+﻿namespace Frends.LDAP.RemoveUserFromGroups.Definitions;
 
 /// <summary>
 /// Task's result.
@@ -37,3 +37,4 @@ public class Result
         GroupDistinguishedName = groupDistinguishedName;
     }
 }
+

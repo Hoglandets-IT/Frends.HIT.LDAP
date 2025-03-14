@@ -1,4 +1,4 @@
-﻿using Frends.HIT.LDAP.UpdateUser.Definitions;
+﻿using Frends.LDAP.UpdateUser.Definitions;
 using System.ComponentModel;
 using Novell.Directory.Ldap;
 using System;
@@ -6,7 +6,7 @@ using System.Collections;
 using System.Reflection;
 using System.Runtime.Loader;
 
-namespace Frends.HIT.LDAP.UpdateUser;
+namespace Frends.LDAP.UpdateUser;
 
 /// <summary>
 /// LDAP task.
@@ -24,7 +24,7 @@ public class LDAP
 
     /// <summary>
     /// Update Active Directory user.
-    /// [Documentation](https://tasks.frends.com/tasks/frends-tasks/Frends.HIT.LDAP.UpdateUser)
+    /// [Documentation](https://tasks.frends.com/tasks/frends-tasks/Frends.LDAP.UpdateUser)
     /// </summary>
     /// <param name="input">Input parameters.</param>
     /// <param name="connection">Connection parameters.</param>
@@ -94,3 +94,4 @@ public class LDAP
         obj.Unloading -= OnPluginUnloadingRequested;
     }
 }
+

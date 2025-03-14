@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
-namespace Frends.HIT.LDAP.CreateUser.Definitions;
+namespace Frends.LDAP.CreateUser.Definitions;
 
 /// <summary>
 /// Input parameters.
@@ -81,3 +81,4 @@ public class Attributes
     /// <example>+358123456789</example>
     public string Value { get; set; }
 }
+

@@ -1,9 +1,9 @@
-﻿using Frends.HIT.LDAP.RemoveUserFromGroups.Definitions;
+﻿using Frends.LDAP.RemoveUserFromGroups.Definitions;
 using System.ComponentModel;
 using Novell.Directory.Ldap;
 using System;
 
-namespace Frends.HIT.LDAP.RemoveUserFromGroups;
+namespace Frends.LDAP.RemoveUserFromGroups;
 
 /// <summary>
 /// LDAP task.
@@ -12,7 +12,7 @@ public class LDAP
 {
     /// <summary>
     /// Remove a user from Active Directory groups.
-    /// [Documentation](https://tasks.frends.com/tasks/frends-tasks/Frends.HIT.LDAP.RemoveUserFromGroups)
+    /// [Documentation](https://tasks.frends.com/tasks/frends-tasks/Frends.LDAP.RemoveUserFromGroups)
     /// </summary>
     /// <param name="input">Input parameters.</param>
     /// <param name="connection">Connection parameters.</param>
@@ -58,3 +58,4 @@ public class LDAP
         }
     }
 }
+

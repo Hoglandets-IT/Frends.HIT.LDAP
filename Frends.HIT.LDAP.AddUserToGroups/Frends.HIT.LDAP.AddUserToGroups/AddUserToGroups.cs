@@ -1,11 +1,11 @@
-﻿using Frends.HIT.LDAP.AddUserToGroups.Definitions;
+﻿using Frends.LDAP.AddUserToGroups.Definitions;
 using System.ComponentModel;
 using Novell.Directory.Ldap;
 using System;
 using System.Threading;
 using System.Linq;
 
-namespace Frends.HIT.LDAP.AddUserToGroups;
+namespace Frends.LDAP.AddUserToGroups;
 
 /// <summary>
 /// LDAP task.
@@ -14,7 +14,7 @@ public class LDAP
 {
     /// <summary>
     /// Add user to Active Directory groups.
-    /// [Documentation](https://tasks.frends.com/tasks/frends-tasks/Frends.HIT.LDAP.AddUserToGroups)
+    /// [Documentation](https://tasks.frends.com/tasks/frends-tasks/Frends.LDAP.AddUserToGroups)
     /// </summary>
     /// <param name="input">Input parameters.</param>
     /// <param name="connection">Connection parameters.</param>
@@ -99,3 +99,4 @@ public class LDAP
         return false;
     }
 }
+

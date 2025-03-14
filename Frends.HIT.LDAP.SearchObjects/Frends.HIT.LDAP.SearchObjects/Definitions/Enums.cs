@@ -1,4 +1,4 @@
-﻿namespace Frends.HIT.LDAP.SearchObjects.Definitions;
+﻿namespace Frends.LDAP.SearchObjects.Definitions;
 
 /// <summary>
 /// Search scopes.
@@ -46,4 +46,5 @@ public enum SearchDereference
     /// </summary>
     DerefAlways,
 }
+
 

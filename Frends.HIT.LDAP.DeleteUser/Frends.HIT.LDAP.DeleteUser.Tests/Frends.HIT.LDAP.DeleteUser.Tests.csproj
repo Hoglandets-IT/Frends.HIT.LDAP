@@ -16,8 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Frends.HIT.LDAP.DeleteUser\Frends.HIT.LDAP.DeleteUser.csproj" />
+    <ProjectReference Include="..\Frends.LDAP.DeleteUser\Frends.LDAP.DeleteUser.csproj" />
   </ItemGroup>
 
 </Project>
+
 

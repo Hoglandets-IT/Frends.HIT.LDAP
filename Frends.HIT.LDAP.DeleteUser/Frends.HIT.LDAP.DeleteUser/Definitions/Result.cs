@@ -1,4 +1,4 @@
-﻿namespace Frends.HIT.LDAP.DeleteUser.Definitions;
+﻿namespace Frends.LDAP.DeleteUser.Definitions;
 
 /// <summary>
 /// Task's result.
@@ -37,3 +37,4 @@ public class Result
         Path = path;
     }
 }
+

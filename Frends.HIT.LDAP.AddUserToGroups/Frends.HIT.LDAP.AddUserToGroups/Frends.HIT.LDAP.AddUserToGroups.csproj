@@ -12,7 +12,7 @@
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>
 	<Description>Add user to Active Directory groups.</Description>
 	<PackageProjectUrl>https://frends.com/</PackageProjectUrl>
-	<RepositoryUrl>https://github.com/FrendsPlatform/Frends.HIT.LDAP</RepositoryUrl>
+	<RepositoryUrl>https://github.com/FrendsPlatform/Frends.LDAP</RepositoryUrl>
   </PropertyGroup>
 	
   <ItemGroup>
@@ -33,3 +33,4 @@
 	<PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
   </ItemGroup>
 </Project>
+

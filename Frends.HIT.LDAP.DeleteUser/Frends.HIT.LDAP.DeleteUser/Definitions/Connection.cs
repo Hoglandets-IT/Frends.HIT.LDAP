@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-namespace Frends.HIT.LDAP.DeleteUser.Definitions;
+namespace Frends.LDAP.DeleteUser.Definitions;
 
 /// <summary>
 /// Connection parameters.
@@ -44,3 +44,4 @@ public class Connection
     [PasswordPropertyText]
     public string Password { get; set; }
 }
+

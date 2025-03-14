@@ -1,8 +1,8 @@
-﻿using Frends.HIT.LDAP.DeleteUser.Definitions;
+﻿using Frends.LDAP.DeleteUser.Definitions;
 using System.ComponentModel;
 using Novell.Directory.Ldap;
 using System;
-namespace Frends.HIT.LDAP.DeleteUser;
+namespace Frends.LDAP.DeleteUser;
 
 /// <summary>
 /// LDAP task.
@@ -11,7 +11,7 @@ public class LDAP
 {
     /// <summary>
     /// Delete a user from Active Directory.
-    /// [Documentation](https://tasks.frends.com/tasks/frends-tasks/Frends.HIT.LDAP.DeleteUser)
+    /// [Documentation](https://tasks.frends.com/tasks/frends-tasks/Frends.LDAP.DeleteUser)
     /// </summary>
     /// <param name="input">Input parameters.</param>
     /// <param name="connection">Connection parameters.</param>
@@ -52,3 +52,4 @@ public class LDAP
         }
     }
 }
+

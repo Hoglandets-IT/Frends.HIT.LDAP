@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Frends.HIT.LDAP.AddUserToGroups.Definitions;
+namespace Frends.LDAP.AddUserToGroups.Definitions;
 
 /// <summary>
 /// Input parameters.
@@ -26,3 +26,4 @@ public class Input
     [DefaultValue(UserExistsAction.Throw)]
     public UserExistsAction UserExistsAction { get; set; }
 }
+

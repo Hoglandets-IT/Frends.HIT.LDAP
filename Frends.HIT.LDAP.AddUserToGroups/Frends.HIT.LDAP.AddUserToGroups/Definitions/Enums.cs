@@ -1,4 +1,4 @@
-﻿namespace Frends.HIT.LDAP.AddUserToGroups.Definitions;
+﻿namespace Frends.LDAP.AddUserToGroups.Definitions;
 
 /// <summary>
 /// Options if user is already in target group.
@@ -15,3 +15,4 @@ public enum UserExistsAction
     /// </summary>
     Skip
 }
+

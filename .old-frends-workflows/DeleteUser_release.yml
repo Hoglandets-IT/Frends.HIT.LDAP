@@ -7,6 +7,7 @@ jobs:
   build:
     uses: FrendsPlatform/FrendsTasks/.github/workflows/release.yml@main
     with:
-      workdir: Frends.HIT.LDAP.DeleteUser
+      workdir: Frends.LDAP.DeleteUser
     secrets:
       feed_api_key: ${{ secrets.TASKS_FEED_API_KEY }}
+

@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Frends.HIT.LDAP.CreateUser.Definitions;
+using Frends.LDAP.CreateUser.Definitions;
 using Novell.Directory.Ldap;
-namespace Frends.HIT.LDAP.CreateUser.Tests;
+namespace Frends.LDAP.CreateUser.Tests;
 
 [TestClass]
 public class UnitTests
@@ -83,3 +83,4 @@ public class UnitTests
         ldapConn.Delete($"CN={cn},{path}");
     }
 }
+

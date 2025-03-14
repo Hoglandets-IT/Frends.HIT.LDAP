@@ -1,8 +1,8 @@
-﻿using Frends.HIT.LDAP.CreateUser.Definitions;
+﻿using Frends.LDAP.CreateUser.Definitions;
 using System.ComponentModel;
 using Novell.Directory.Ldap;
 using System;
-namespace Frends.HIT.LDAP.CreateUser;
+namespace Frends.LDAP.CreateUser;
 
 /// <summary>
 /// LDAP task.
@@ -11,7 +11,7 @@ public class LDAP
 {
     /// <summary>
     /// Create a user to Active Directory.
-    /// [Documentation](https://tasks.frends.com/tasks/frends-tasks/Frends.HIT.LDAP.CreateUser)
+    /// [Documentation](https://tasks.frends.com/tasks/frends-tasks/Frends.LDAP.CreateUser)
     /// </summary>
     /// <param name="input">Input parameters.</param>
     /// <param name="connection">Connection parameters.</param>
@@ -64,3 +64,4 @@ public class LDAP
         }
     }
 }
+

@@ -1,7 +1,7 @@
 ﻿﻿using System;
 using System.ComponentModel;
 
-namespace Frends.HIT.LDAP.SearchObjects.Definitions;
+namespace Frends.LDAP.SearchObjects.Definitions;
 
 public class Input
 {
@@ -101,4 +101,5 @@ public class Input
         String,
         Byte
     }
+
 

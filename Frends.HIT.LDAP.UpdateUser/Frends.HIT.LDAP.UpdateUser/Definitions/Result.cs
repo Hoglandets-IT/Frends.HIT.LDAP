@@ -1,4 +1,4 @@
-﻿namespace Frends.HIT.LDAP.UpdateUser.Definitions;
+﻿namespace Frends.LDAP.UpdateUser.Definitions;
 
 /// <summary>
 /// Task's result.
@@ -37,3 +37,4 @@ public class Result
         Path = path;
     }
 }
+

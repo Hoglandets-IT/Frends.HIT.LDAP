@@ -1,4 +1,4 @@
-﻿namespace Frends.HIT.LDAP.UpdateUser.Definitions;
+﻿namespace Frends.LDAP.UpdateUser.Definitions;
 
 /// <summary>
 /// Modification methods.
@@ -20,3 +20,4 @@ public enum ModificationMethod
     /// </summary>
     Replace
 }
+

@@ -16,8 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Frends.HIT.LDAP.SearchObjects\Frends.HIT.LDAP.SearchObjects.csproj" />
+    <ProjectReference Include="..\Frends.LDAP.SearchObjects\Frends.LDAP.SearchObjects.csproj" />
   </ItemGroup>
 
 </Project>
+
 

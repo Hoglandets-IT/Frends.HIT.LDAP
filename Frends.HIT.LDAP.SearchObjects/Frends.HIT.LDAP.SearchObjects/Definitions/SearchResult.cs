@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-namespace Frends.HIT.LDAP.SearchObjects.Definitions;
+namespace Frends.LDAP.SearchObjects.Definitions;
 
 /// <summary>
 /// Search result.
@@ -34,3 +34,4 @@ public class AttributeSet
     /// </summary>
     public string Value { get; set; }
 }
+
