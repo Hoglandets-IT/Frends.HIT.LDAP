@@ -1,18 +1,18 @@
-name: UpdateUser build main
+﻿name: UpdateUser build main
 
 on:
   push:
     branches:    
       - main
     paths:
-      - 'Frends.LDAP.UpdateUser/**'
+      - 'Frends.HIT.LDAP.UpdateUser/**'
   workflow_dispatch:
 
 jobs:
   build:
     uses: FrendsPlatform/FrendsTasks/.github/workflows/linux_build_main.yml@main
     with:
-      workdir: Frends.LDAP.UpdateUser
+      workdir: Frends.HIT.LDAP.UpdateUser
       prebuild_command: docker run -d -i --rm -p 10389:10389 dwimberger/ldap-ad-it
     secrets:
       badge_service_api_key: ${{ secrets.BADGE_SERVICE_API_KEY }}

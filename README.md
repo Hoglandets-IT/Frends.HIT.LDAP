@@ -1,15 +1,15 @@
-# Frends.LDAP
+﻿# Frends.HIT.LDAP
 
 Frends Task for Active Directory related operations.
 
 # Tasks
 
-- [Frends.LDAP.CreateUser](Frends.LDAP.CreateUser/README.md)
-- [Frends.LDAP.DeleteUser](Frends.LDAP.DeleteUser/README.md)
-- [Frends.LDAP.SearchObjects](Frends.LDAP.SearchObjects/README.md)
-- [Frends.LDAP.UpdateUser](Frends.LDAP.UpdateUser/README.md)
-- [Frends.LDAP.AddUserToGroups](Frends.LDAP.AddUserToGroups/README.md)
-- [Frends.LDAP.RemoveUserFromGroups](Frends.LDAP.RemoveUserFromGroups/README.md)
+- [Frends.HIT.LDAP.CreateUser](Frends.HIT.LDAP.CreateUser/README.md)
+- [Frends.HIT.LDAP.DeleteUser](Frends.HIT.LDAP.DeleteUser/README.md)
+- [Frends.HIT.LDAP.SearchObjects](Frends.HIT.LDAP.SearchObjects/README.md)
+- [Frends.HIT.LDAP.UpdateUser](Frends.HIT.LDAP.UpdateUser/README.md)
+- [Frends.HIT.LDAP.AddUserToGroups](Frends.HIT.LDAP.AddUserToGroups/README.md)
+- [Frends.HIT.LDAP.RemoveUserFromGroups](Frends.HIT.LDAP.RemoveUserFromGroups/README.md)
 
 # Contributing
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.

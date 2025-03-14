@@ -1,4 +1,4 @@
-name: AddUserToGroups release
+﻿name: AddUserToGroups release
 
 on:
   workflow_dispatch:
@@ -7,6 +7,6 @@ jobs:
   build:
     uses: FrendsPlatform/FrendsTasks/.github/workflows/release.yml@main
     with:
-      workdir: Frends.LDAP.AddUserToGroups
+      workdir: Frends.HIT.LDAP.AddUserToGroups
     secrets:
       feed_api_key: ${{ secrets.TASKS_FEED_API_KEY }}

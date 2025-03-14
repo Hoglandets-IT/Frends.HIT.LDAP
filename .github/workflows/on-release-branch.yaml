@@ -1,4 +1,4 @@
-name: Build & Release
+﻿name: Build & Release
 
 on:
   release:
@@ -24,12 +24,12 @@ jobs:
         
         - name: Build and Pack
           run: |
-            dotnet restore Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}.csproj
-            dotnet build --configuration Release Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}.csproj /p:Version=$GITHUB_REF_NAME
-            dotnet pack --configuration Release Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}.csproj --include-source --output Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}/bin/Release /p:Version=$GITHUB_REF_NAME
+            dotnet restore Frends.HIT.LDAP.${{ matrix.pkg }}/Frends.HIT.LDAP.${{ matrix.pkg }}/Frends.HIT.LDAP.${{ matrix.pkg }}.csproj
+            dotnet build --configuration Release Frends.HIT.LDAP.${{ matrix.pkg }}/Frends.HIT.LDAP.${{ matrix.pkg }}/Frends.HIT.LDAP.${{ matrix.pkg }}.csproj /p:Version=$GITHUB_REF_NAME
+            dotnet pack --configuration Release Frends.HIT.LDAP.${{ matrix.pkg }}/Frends.HIT.LDAP.${{ matrix.pkg }}/Frends.HIT.LDAP.${{ matrix.pkg }}.csproj --include-source --output Frends.HIT.LDAP.${{ matrix.pkg }}/Frends.HIT.LDAP.${{ matrix.pkg }}/bin/Release /p:Version=$GITHUB_REF_NAME
         
         - name: Debug Check packed files
-          run: ls -l Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}/bin/Release/
+          run: ls -l Frends.HIT.LDAP.${{ matrix.pkg }}/Frends.HIT.LDAP.${{ matrix.pkg }}/bin/Release/
 
         - name: Push NuGet package
           run: |
@@ -39,13 +39,14 @@ jobs:
               ${{ secrets.FRENDS_NUGET_V2_FEED_URL }}
 
             dotnet nuget push --source hit-registry \
-              Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}/bin/Release/*.nupkg --skip-duplicate
+              Frends.HIT.LDAP.${{ matrix.pkg }}/Frends.HIT.LDAP.${{ matrix.pkg }}/bin/Release/*.nupkg --skip-duplicate
         
         - name: Upload binaries to release
           uses: svenstaro/upload-release-action@v2
           with:
             repo_token: ${{ secrets.GITHUB_TOKEN }}
-            file: Frends.LDAP.${{ matrix.pkg }}/Frends.LDAP.${{ matrix.pkg }}/bin/Release/*.nupkg
+            file: Frends.HIT.LDAP.${{ matrix.pkg }}/Frends.HIT.LDAP.${{ matrix.pkg }}/bin/Release/*.nupkg
             file_glob: true
             tag: ${{ github.ref }}
             overwrite: true
+
