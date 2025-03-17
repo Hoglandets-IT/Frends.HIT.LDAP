@@ -106,10 +106,39 @@ public class LDAP
                     {
                         LdapAttribute attribute = ienum.Current;
                         var attributeName = attribute.Name;
+                        string attributeVal = null;
 
-                        dynamic attributeVal = attribute.StringValueArray.Length <= 1 ? attribute.StringValue : attribute.StringValueArray;
+                        var attributeDefinition = input.Attributes != null
+                            ? Array.Find(input.Attributes, d => d.Key.Equals(attributeName, StringComparison.OrdinalIgnoreCase))
+                            : null;
+
+                        if (attributeDefinition != null)
+                        {
+                            switch (attributeDefinition.ReturnType)
+                            {
+                                case AttributeReturnType.Byte:
+                                    byte[] bytes = attribute.ByteValue;
+                                    attributeVal = BitConverter.ToString(bytes).Replace("-", "");
+                                    break;
+                                case AttributeReturnType.Guid:
+                                    byte[] guidBytes = attribute.ByteValue;
+                                    Guid guid = new Guid(guidBytes);
+                                    attributeVal = guid.ToString();
+                                    break;
+                                default:
+                                    attributeVal = attribute.StringValue;
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            attributeVal = attribute.StringValue;
+                        }
+
+
                         attributeList.Add(new AttributeSet { Key = attributeName, Value = attributeVal });
                     }
+
 
                     searchResults.Add(new SearchResult() { DistinguishedName = entry.Dn, AttributeSet = attributeList });
                 }
