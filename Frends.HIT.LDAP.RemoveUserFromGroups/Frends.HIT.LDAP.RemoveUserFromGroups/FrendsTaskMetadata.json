@@ -1,7 +1,7 @@
-﻿{
+{
   "Tasks": [
     {
-      "TaskMethod": "Frends.LDAP.RemoveUserFromGroups.LDAP.RemoveUserFromGroups"
+      "TaskMethod": "Frends.HIT.LDAP.RemoveUserFromGroups.LDAP.RemoveUserFromGroups"
     }
   ]
 }

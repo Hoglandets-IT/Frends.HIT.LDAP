@@ -1,4 +1,4 @@
-﻿namespace Frends.LDAP.SearchObjects.Definitions;
+namespace Frends.HIT.LDAP.SearchObjects.Definitions;
 
 /// <summary>
 /// Search scopes.
@@ -47,4 +47,17 @@ public enum SearchDereference
     DerefAlways,
 }
 
-
+/// <summary>
+/// LDAP protocol versions.
+/// </summary>
+public enum LDAPVersion
+{
+    /// <summary>
+    /// LDAP Version 2
+    /// </summary>
+    V2,
+    /// <summary>
+    /// LDAP Version 3
+    /// </summary>
+    V3,
+}

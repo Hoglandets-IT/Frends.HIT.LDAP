@@ -1,4 +1,4 @@
-﻿namespace Frends.LDAP.CreateUser.Definitions;
+namespace Frends.HIT.LDAP.CreateUser.Definitions;
 
 /// <summary>
 /// Task's result.
@@ -44,4 +44,3 @@ public class Result
         Path = path;
     }
 }
-

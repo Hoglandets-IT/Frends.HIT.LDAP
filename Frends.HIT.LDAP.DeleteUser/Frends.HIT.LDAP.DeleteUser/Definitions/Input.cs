@@ -1,4 +1,4 @@
-﻿namespace Frends.LDAP.DeleteUser.Definitions;
+namespace Frends.HIT.LDAP.DeleteUser.Definitions;
 
 /// <summary>
 /// Input parameters.
@@ -17,4 +17,3 @@ public class Input
     /// <example>Firstname Lastname</example>
     public string CommonName { get; set; }
 }
-

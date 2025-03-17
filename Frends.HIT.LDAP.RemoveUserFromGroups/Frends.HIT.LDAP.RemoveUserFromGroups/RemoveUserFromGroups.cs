@@ -1,9 +1,9 @@
-﻿using Frends.LDAP.RemoveUserFromGroups.Definitions;
+using Frends.HIT.LDAP.RemoveUserFromGroups.Definitions;
 using System.ComponentModel;
 using Novell.Directory.Ldap;
 using System;
 
-namespace Frends.LDAP.RemoveUserFromGroups;
+namespace Frends.HIT.LDAP.RemoveUserFromGroups;
 
 /// <summary>
 /// LDAP task.
@@ -58,4 +58,3 @@ public class LDAP
         }
     }
 }
-

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -16,9 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Frends.LDAP.SearchObjects\Frends.LDAP.SearchObjects.csproj" />
+    <ProjectReference Include="..\Frends.HIT.LDAP.SearchObjects\Frends.HIT.LDAP.SearchObjects.csproj" />
   </ItemGroup>
 
 </Project>
-
-

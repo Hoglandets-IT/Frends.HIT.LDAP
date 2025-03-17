@@ -1,4 +1,4 @@
-﻿# Frends.LDAP.AddUserToGroups
+# Frends.LDAP.AddUserToGroups
 Frends LDAP task to add a user to Active Directory groups.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) 
@@ -28,4 +28,3 @@ Run tests
 Create a NuGet package
 
 `dotnet pack --configuration Release`
-

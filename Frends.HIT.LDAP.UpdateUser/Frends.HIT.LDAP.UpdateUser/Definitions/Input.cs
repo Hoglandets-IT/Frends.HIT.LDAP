@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Frends.LDAP.UpdateUser.Definitions;
+namespace Frends.HIT.LDAP.UpdateUser.Definitions;
 
 /// <summary>
 /// Input parameters.
@@ -69,4 +69,3 @@ public class Attributes
     /// <example>+358123456789</example>
     public string Value { get; set; }
 }
-

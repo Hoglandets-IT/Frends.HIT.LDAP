@@ -1,5 +1,5 @@
-﻿using System.ComponentModel;
-namespace Frends.LDAP.RemoveUserFromGroups.Definitions;
+using System.ComponentModel;
+namespace Frends.HIT.LDAP.RemoveUserFromGroups.Definitions;
 
 /// <summary>
 /// Connection parameters.
@@ -44,4 +44,3 @@ public class Connection
     [PasswordPropertyText]
     public string Password { get; set; }
 }
-

@@ -1,8 +1,8 @@
-﻿using Frends.LDAP.CreateUser.Definitions;
+using Frends.HIT.LDAP.CreateUser.Definitions;
 using System.ComponentModel;
 using Novell.Directory.Ldap;
 using System;
-namespace Frends.LDAP.CreateUser;
+namespace Frends.HIT.LDAP.CreateUser;
 
 /// <summary>
 /// LDAP task.
@@ -64,4 +64,3 @@ public class LDAP
         }
     }
 }
-

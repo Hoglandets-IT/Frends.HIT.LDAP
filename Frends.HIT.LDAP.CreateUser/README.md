@@ -1,4 +1,4 @@
-﻿# Frends.LDAP.CreateUser
+# Frends.LDAP.CreateUser
 Frends LDAP task to create a user to Active Directory.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) 
@@ -28,4 +28,3 @@ Run tests
 Create a NuGet package
 
 `dotnet pack --configuration Release`
-

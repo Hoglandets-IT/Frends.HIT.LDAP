@@ -1,11 +1,11 @@
-﻿using Frends.LDAP.AddUserToGroups.Definitions;
+using Frends.HIT.LDAP.AddUserToGroups.Definitions;
 using System.ComponentModel;
 using Novell.Directory.Ldap;
 using System;
 using System.Threading;
 using System.Linq;
 
-namespace Frends.LDAP.AddUserToGroups;
+namespace Frends.HIT.LDAP.AddUserToGroups;
 
 /// <summary>
 /// LDAP task.
@@ -99,4 +99,3 @@ public class LDAP
         return false;
     }
 }
-

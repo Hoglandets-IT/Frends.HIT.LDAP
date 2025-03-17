@@ -1,4 +1,4 @@
-﻿name: SearchObjects release
+name: SearchObjects release
 
 on:
   workflow_dispatch:
@@ -10,4 +10,3 @@ jobs:
       workdir: Frends.LDAP.SearchObjects
     secrets:
       feed_api_key: ${{ secrets.TASKS_FEED_API_KEY }}
-

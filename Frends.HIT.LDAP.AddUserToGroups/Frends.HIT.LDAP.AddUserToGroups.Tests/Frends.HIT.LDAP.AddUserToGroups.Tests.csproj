@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -26,9 +26,7 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Frends.LDAP.AddUserToGroups\Frends.LDAP.AddUserToGroups.csproj" />
+    <ProjectReference Include="..\Frends.HIT.LDAP.AddUserToGroups\Frends.HIT.LDAP.AddUserToGroups.csproj" />
   </ItemGroup>
 
 </Project>
-
-

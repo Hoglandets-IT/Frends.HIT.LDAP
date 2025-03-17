@@ -1,7 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Frends.LDAP.DeleteUser.Definitions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Frends.HIT.LDAP.DeleteUser.Definitions;
 using Novell.Directory.Ldap;
-namespace Frends.LDAP.DeleteUser.Tests;
+namespace Frends.HIT.LDAP.DeleteUser.Tests;
 
 [TestClass]
 public class UnitTests
@@ -87,4 +87,3 @@ public class UnitTests
         conn.Disconnect();
     }
 }
-

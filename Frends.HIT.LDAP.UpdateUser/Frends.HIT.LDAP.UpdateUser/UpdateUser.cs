@@ -1,4 +1,4 @@
-﻿using Frends.LDAP.UpdateUser.Definitions;
+using Frends.HIT.LDAP.UpdateUser.Definitions;
 using System.ComponentModel;
 using Novell.Directory.Ldap;
 using System;
@@ -6,7 +6,7 @@ using System.Collections;
 using System.Reflection;
 using System.Runtime.Loader;
 
-namespace Frends.LDAP.UpdateUser;
+namespace Frends.HIT.LDAP.UpdateUser;
 
 /// <summary>
 /// LDAP task.
@@ -94,4 +94,3 @@ public class LDAP
         obj.Unloading -= OnPluginUnloadingRequested;
     }
 }
-

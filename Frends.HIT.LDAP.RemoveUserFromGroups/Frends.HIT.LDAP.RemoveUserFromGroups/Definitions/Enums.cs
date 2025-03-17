@@ -1,4 +1,4 @@
-﻿namespace Frends.LDAP.RemoveUserFromGroups.Definitions;
+namespace Frends.HIT.LDAP.RemoveUserFromGroups.Definitions;
 
 /// <summary>
 /// How to handle LDAP errors.
@@ -15,4 +15,3 @@ public enum HandleLDAPError
     /// </summary>
     Skip
 }
-

@@ -1,8 +1,8 @@
-﻿using Frends.LDAP.DeleteUser.Definitions;
+using Frends.HIT.LDAP.DeleteUser.Definitions;
 using System.ComponentModel;
 using Novell.Directory.Ldap;
 using System;
-namespace Frends.LDAP.DeleteUser;
+namespace Frends.HIT.LDAP.DeleteUser;
 
 /// <summary>
 /// LDAP task.
@@ -52,4 +52,3 @@ public class LDAP
         }
     }
 }
-

@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-namespace Frends.LDAP.SearchObjects.Definitions;
+using System.Collections.Generic;
+namespace Frends.HIT.LDAP.SearchObjects.Definitions;
 
 /// <summary>
 /// Search result.
@@ -32,6 +32,5 @@ public class AttributeSet
     /// <summary>
     /// Value.
     /// </summary>
-    public string Value { get; set; }
+    public dynamic Value { get; set; }
 }
-

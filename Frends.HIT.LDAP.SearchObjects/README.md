@@ -1,4 +1,4 @@
-﻿# Frends.LDAP.SearchObjects
+# Frends.LDAP.SearchObjects
 Frends LDAP search objects task.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) 
@@ -28,4 +28,3 @@ Run tests
 Create a NuGet package
 
 `dotnet pack --configuration Release`
-

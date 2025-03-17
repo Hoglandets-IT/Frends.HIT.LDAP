@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-namespace Frends.LDAP.SearchObjects.Definitions;
+using System.Collections.Generic;
+namespace Frends.HIT.LDAP.SearchObjects.Definitions;
 
 /// <summary>
 /// Task's results.
@@ -31,4 +31,3 @@ public class Result
         SearchResult = searchResult;
     }
 }
-

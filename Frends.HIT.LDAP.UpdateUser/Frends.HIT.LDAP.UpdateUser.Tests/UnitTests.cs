@@ -1,7 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Frends.LDAP.UpdateUser.Definitions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Frends.HIT.LDAP.UpdateUser.Definitions;
 using Novell.Directory.Ldap;
-namespace Frends.LDAP.UpdateUser.Tests;
+namespace Frends.HIT.LDAP.UpdateUser.Tests;
 
 [TestClass]
 public class UnitTests
@@ -307,4 +307,3 @@ public class UnitTests
         conn.Disconnect();
     }
 }
-

@@ -1,6 +1,6 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 
-namespace Frends.LDAP.RemoveUserFromGroups.Definitions;
+namespace Frends.HIT.LDAP.RemoveUserFromGroups.Definitions;
 
 /// <summary>
 /// Input parameters.
@@ -26,4 +26,3 @@ public class Input
     [DefaultValue(HandleLDAPError.Throw)]
     public HandleLDAPError HandleLDAPError { get; set; } 
 }
-

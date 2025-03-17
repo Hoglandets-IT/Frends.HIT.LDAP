@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1600:Elements should be documented", Justification = "Following Frends documentation guidelines", Scope = "namespaceanddescendants", Target = "~N:Frends.LDAP.AddUserToGroups.Definitions")]
 [assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:Property summary documentation should match accessors", Justification = "Following Frends documentation guidelines", Scope = "namespaceanddescendants", Target = "~N:Frends.LDAP.AddUserToGroups.Definitions")]
@@ -9,5 +9,3 @@
 [assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1633:File should have header", Justification = "Following Frends guidelines")]
 [assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1600:Elements should be documented", Justification = "Following Frends guidelines", Scope = "namespaceanddescendants", Target = "~N:Frends.LDAP.AddUserToGroups")]
 [assembly: SuppressMessage("StyleCop.CSharp.LayoutRules", "SA1503:Braces should not be omitted", Justification = "Following Frends guidelines", Scope = "namespaceanddescendants", Target = "~N:Frends.LDAP.AddUserToGroups")]
-
-
