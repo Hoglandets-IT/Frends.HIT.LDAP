@@ -10,7 +10,7 @@ jobs:
     timeout-minutes: 15
     strategy:
       matrix:
-        pkg: [ "AddUserToGroups", "CreateUser", "DeleteUser", "RemoveUserFromGroups", "SearchObjects", "UpdateUser" ]
+        pkg: [ "AddUserToGroups", "CreateUser", "DeleteUser", "RemoveUserFromGroups", "GetObjects", "UpdateUser" ]
     steps:
         - name: Checkout
           uses: actions/checkout@v2
