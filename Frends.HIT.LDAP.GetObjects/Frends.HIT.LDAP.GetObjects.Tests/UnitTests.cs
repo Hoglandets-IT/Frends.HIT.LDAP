@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Frends.HIT.LDAP.SearchObjects.Definitions;
+using Frends.HIT.LDAP.GetObjects.Definitions;
 using Novell.Directory.Ldap;
-namespace Frends.HIT.LDAP.SearchObjects.Tests;
+namespace Frends.HIT.LDAP.GetObjects.Tests;
 
 [TestClass]
 public class UnitTests

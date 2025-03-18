@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 
-namespace Frends.HIT.LDAP.SearchObjects.Definitions;
+namespace Frends.HIT.LDAP.GetObjects.Definitions;
 
 /// <summary>
 /// Input parameters.

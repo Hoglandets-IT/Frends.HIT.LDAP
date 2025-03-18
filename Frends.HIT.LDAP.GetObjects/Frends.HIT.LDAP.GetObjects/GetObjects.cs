@@ -1,4 +1,4 @@
-using Frends.HIT.LDAP.SearchObjects.Definitions;
+using Frends.HIT.LDAP.GetObjects.Definitions;
 using System.ComponentModel;
 using Novell.Directory.Ldap;
 using System;
@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Linq;
 
-namespace Frends.HIT.LDAP.SearchObjects;
+namespace Frends.HIT.LDAP.GetObjects;
 
 /// <summary>
 /// LDAP task.

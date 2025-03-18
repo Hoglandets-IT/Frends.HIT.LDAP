@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-namespace Frends.HIT.LDAP.SearchObjects.Definitions;
+namespace Frends.HIT.LDAP.GetObjects.Definitions;
 
 /// <summary>
 /// Search result.
