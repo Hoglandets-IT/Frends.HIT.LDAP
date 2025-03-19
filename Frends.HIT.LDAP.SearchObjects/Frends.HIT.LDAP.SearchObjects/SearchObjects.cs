@@ -1,26 +1,21 @@
 using Frends.HIT.LDAP.SearchObjects.Definitions;
-using System.ComponentModel;
-using Novell.Directory.Ldap;
-using Novell.Directory.Ldap.Controls;
 using System;
 using System.Collections.Generic;
+using System.DirectoryServices.Protocols;
+using System.Net;
 using System.Threading;
 
 namespace Frends.HIT.LDAP.SearchObjects;
 
 /// <summary>
-/// LDAP task.
+/// LDAP task with Microsoft DirectoryServices.
 /// </summary>
 public class LDAP
 {
     /// <summary>
     /// Search objects from Active Directory with paginated results.
     /// </summary>
-    /// <param name="input">Input parameters.</param>
-    /// <param name="connection">Connection parameters.</param>
-    /// <param name="cancellationToken">Token to stop the task.</param>
-    /// <returns>Object { bool Success, string Error, List&lt;SearchResult&gt; SearchResult }</returns>
-    public static Result SearchObjects([PropertyTab] Input input, [PropertyTab] Connection connection, CancellationToken cancellationToken)
+    public static Result SearchObjects(Input input, Connection connection, CancellationToken cancellationToken)
     {
         if (string.IsNullOrWhiteSpace(connection.Host))
             throw new Exception("Host is missing.");
@@ -31,83 +26,42 @@ public class LDAP
         if (string.IsNullOrEmpty(connection.Password) && !connection.AnonymousBind)
             throw new Exception("Password is missing.");
 
-        var ldapConnectionOptions = new LdapConnectionOptions();
+        using var conn = new LdapConnection(new LdapDirectoryIdentifier(connection.Host, connection.Port == 0 ? 389 : connection.Port));
+
         if (connection.IgnoreCertificates)
-            ldapConnectionOptions.ConfigureRemoteCertificateValidationCallback((sender, certificate, chain, errors) => true);
+            conn.SessionOptions.VerifyServerCertificate = (sender, cert) => true;
 
-        using var conn = new LdapConnection(ldapConnectionOptions);
-        conn.SecureSocketLayer = connection.SecureSocketLayer;
-        conn.Connect(connection.Host, connection.Port == 0 ? 389 : connection.Port);
-        if (connection.TLS) conn.StartTls();
-
-        if (connection.AnonymousBind)
-            conn.Bind(3, null, null);
-        else
-            conn.Bind(3, connection.User, connection.Password ?? string.Empty); // Fixa bind-fel
+        conn.AuthType = connection.AnonymousBind ? AuthType.Anonymous : AuthType.Basic;
+        conn.Bind(new NetworkCredential(connection.User, connection.Password ?? string.Empty));
 
         var searchResults = new List<SearchResult>();
-        var cookie = new byte[0]; // För paginering
         var pageSize = input.PageSize > 0 ? input.PageSize : 500;
-        var pageControl = new LdapPagedResultsControl(pageSize, true);
+        var requestControl = new PageResultRequestControl(pageSize);
+        SearchRequest request = new(input.SearchBase, input.Filter, SearchScope.Subtree);
 
-        int pageCounter = 0;
-
-        try
+        request.Controls.Add(requestControl);
+        while (true)
         {
-            do
+            cancellationToken.ThrowIfCancellationRequested();
+
+            var response = (SearchResponse)conn.SendRequest(request);
+            foreach (SearchResultEntry entry in response.Entries)
             {
-                pageCounter++;
-                Console.WriteLine($"📄 Fetching page {pageCounter}...");
-
-                var searchConstraints = new LdapSearchConstraints
+                var attributes = new List<AttributeSet>();
+                foreach (DirectoryAttribute attr in entry.Attributes.Values)
                 {
-                    BatchSize = pageSize
-                };
-                conn.Constraints = searchConstraints;
-                conn.Constraints.SetControls(pageControl); // Rätt sätt att lägga till kontroll
-
-                var searchQueue = conn.Search(
-                    input.SearchBase,
-                    SetScope(input),
-                    string.IsNullOrEmpty(input.Filter) ? null : input.Filter,
-                    GetAttributeArray(input),
-                    input.TypesOnly,
-                    null,
-                    searchConstraints);
-
-                int resultsOnPage = 0;
-                LdapMessage message;
-                while ((message = searchQueue.GetResponse()) != null)
-                {
-                    cancellationToken.ThrowIfCancellationRequested();
-
-                    if (message is LdapSearchResult ldapSearchResult)
-                    {
-                        var entry = ldapSearchResult.Entry;
-                        var attributes = GetAttributeSet(entry, input.Attributes);
-
-                        searchResults.Add(new SearchResult { DistinguishedName = entry.Dn, AttributeSet = attributes });
-                        resultsOnPage++;
-                    }
+                    attributes.Add(new AttributeSet { Key = attr.Name, Value = attr.GetValues(typeof(string)) });
                 }
+                searchResults.Add(new SearchResult { DistinguishedName = entry.DistinguishedName, AttributeSet = attributes });
+            }
 
-                Console.WriteLine($"✅ Page {pageCounter} returned {resultsOnPage} objects");
+            var responseControl = response.Controls[0] as PageResultResponseControl;
+            if (responseControl == null || responseControl.Cookie.Length == 0)
+                break;
 
-                var response = searchQueue.GetResponse() as LdapResponse; // Korrekt ersättning för LdapSearchResultDone
-                var pagedControlResponse = response?.GetControls()[0] as LdapPagedResultsResponse;
-
-                cookie = pagedControlResponse?.Cookie ?? Array.Empty<byte>();
-                pageControl = new LdapPagedResultsControl(pageSize, true, cookie);
-
-            } while (cookie.Length > 0);
-        }
-        finally
-        {
-            if (connection.TLS) conn.StopTls();
-            conn.Disconnect();
+            requestControl.Cookie = responseControl.Cookie;
         }
 
-        Console.WriteLine($"✅ Total objects retrieved: {searchResults.Count}");
         return new Result(true, null, searchResults);
     }
 
