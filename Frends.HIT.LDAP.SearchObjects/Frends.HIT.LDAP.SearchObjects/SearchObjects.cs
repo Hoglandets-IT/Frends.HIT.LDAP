@@ -1,6 +1,7 @@
 using Frends.HIT.LDAP.SearchObjects.Definitions;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.DirectoryServices.Protocols;
 using System.Net;
 using System.Threading;
@@ -8,14 +9,14 @@ using System.Threading;
 namespace Frends.HIT.LDAP.SearchObjects;
 
 /// <summary>
-/// LDAP task with Microsoft DirectoryServices.
+/// LDAP task using System.DirectoryServices.Protocols.
 /// </summary>
 public class LDAP
 {
     /// <summary>
     /// Search objects from Active Directory with paginated results.
     /// </summary>
-    public static Result SearchObjects(Input input, Connection connection, CancellationToken cancellationToken)
+    public static Result SearchObjects([PropertyTab] Input input, [PropertyTab] Connection connection, CancellationToken cancellationToken)
     {
         if (string.IsNullOrWhiteSpace(connection.Host))
             throw new Exception("Host is missing.");
@@ -37,7 +38,7 @@ public class LDAP
         var searchResults = new List<SearchResult>();
         var pageSize = input.PageSize > 0 ? input.PageSize : 500;
         var requestControl = new PageResultRequestControl(pageSize);
-        SearchRequest request = new(input.SearchBase, input.Filter, SearchScope.Subtree);
+        SearchRequest request = new(input.SearchBase, input.Filter, ConvertScope(input.Scope), new string[0]);
 
         request.Controls.Add(requestControl);
         while (true)
@@ -47,11 +48,7 @@ public class LDAP
             var response = (SearchResponse)conn.SendRequest(request);
             foreach (SearchResultEntry entry in response.Entries)
             {
-                var attributes = new List<AttributeSet>();
-                foreach (DirectoryAttribute attr in entry.Attributes.Values)
-                {
-                    attributes.Add(new AttributeSet { Key = attr.Name, Value = attr.GetValues(typeof(string)) });
-                }
+                var attributes = ExtractAttributes(entry, input.Attributes);
                 searchResults.Add(new SearchResult { DistinguishedName = entry.DistinguishedName, AttributeSet = attributes });
             }
 
@@ -65,42 +62,34 @@ public class LDAP
         return new Result(true, null, searchResults);
     }
 
-
-    /// <summary>
-    /// Converts requested attributes into an array.
-    /// </summary>
-    private static string[] GetAttributeArray(Input input)
-    {
-        if (input.Attributes == null || input.Attributes.Length == 0)
-            return null;
-
-        var attributeList = new List<string>();
-        foreach (var attr in input.Attributes)
-        {
-            attributeList.Add(attr.Key);
-        }
-        return attributeList.ToArray();
-    }
-
     /// <summary>
     /// Extracts attributes from an LDAP entry based on requested attribute definitions.
     /// </summary>
-    private static List<AttributeSet> GetAttributeSet(LdapEntry entry, AttributeDefinition[] requestedAttributes)
+    private static List<AttributeSet> ExtractAttributes(SearchResultEntry entry, AttributeDefinition[] requestedAttributes)
     {
         var attributeList = new List<AttributeSet>();
-        var attributeSet = entry.GetAttributeSet();
-        var enumerator = attributeSet.GetEnumerator();
 
-        while (enumerator.MoveNext())
+        foreach (string attrName in entry.Attributes.AttributeNames)
         {
-            var attribute = enumerator.Current as LdapAttribute;
-            if (attribute == null) continue;
+            var attr = entry.Attributes[attrName];
 
-            var attributeName = attribute.Name;
-            object attributeValue = attribute.StringValue;
+            object attributeValue;
+            if (attr.Count == 1)
+            {
+                attributeValue = attr[0];
+            }
+            else
+            {
+                var values = new List<string>();
+                foreach (var value in attr.GetValues(typeof(string)))
+                {
+                    values.Add(value.ToString());
+                }
+                attributeValue = values;
+            }
 
             var attributeDefinition = requestedAttributes != null
-                ? Array.Find(requestedAttributes, d => d.Key.Equals(attributeName, StringComparison.OrdinalIgnoreCase))
+                ? Array.Find(requestedAttributes, d => d.Key.Equals(attrName, StringComparison.OrdinalIgnoreCase))
                 : null;
 
             if (attributeDefinition != null)
@@ -108,18 +97,15 @@ public class LDAP
                 switch (attributeDefinition.ReturnType)
                 {
                     case AttributeReturnType.Byte:
-                        attributeValue = BitConverter.ToString(attribute.ByteValue).Replace("-", "");
+                        attributeValue = BitConverter.ToString((byte[])attr.GetValues(typeof(byte[]))[0]).Replace("-", "");
                         break;
                     case AttributeReturnType.Guid:
-                        attributeValue = new Guid(attribute.ByteValue).ToString();
-                        break;
-                    default:
-                        attributeValue = attribute.StringValue;
+                        attributeValue = new Guid((byte[])attr.GetValues(typeof(byte[]))[0]).ToString();
                         break;
                 }
             }
 
-            attributeList.Add(new AttributeSet { Key = attributeName, Value = attributeValue });
+            attributeList.Add(new AttributeSet { Key = attrName, Value = attributeValue });
         }
 
         return attributeList;
@@ -128,14 +114,14 @@ public class LDAP
     /// <summary>
     /// Converts input search scope to LDAP integer values.
     /// </summary>
-    internal static int SetScope(Input input)
+    private static SearchScope ConvertScope(Scopes scope)
     {
-        return input.Scope switch
+        return scope switch
         {
-            Scopes.ScopeBase => LdapConnection.ScopeBase,
-            Scopes.ScopeOne => LdapConnection.ScopeOne,
-            Scopes.ScopeSub => LdapConnection.ScopeSub,
-            _ => throw new Exception("SetScope error: Invalid scope."),
+            Scopes.ScopeBase => SearchScope.Base,
+            Scopes.ScopeOne => SearchScope.OneLevel,
+            Scopes.ScopeSub => SearchScope.Subtree,
+            _ => throw new Exception("ConvertScope error: Invalid scope."),
         };
     }
 }
