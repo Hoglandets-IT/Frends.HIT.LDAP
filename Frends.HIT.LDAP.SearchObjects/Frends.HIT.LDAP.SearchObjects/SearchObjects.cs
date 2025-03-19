@@ -1,6 +1,7 @@
 using Frends.HIT.LDAP.SearchObjects.Definitions;
 using System.ComponentModel;
 using Novell.Directory.Ldap;
+using Novell.Directory.Ldap.Controls;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -42,11 +43,11 @@ public class LDAP
         if (connection.AnonymousBind)
             conn.Bind(3, null, null);
         else
-            conn.Bind(3, connection.User, connection.Password);
+            conn.Bind(3, connection.User, connection.Password ?? string.Empty); // Fixa bind-fel
 
         var searchResults = new List<SearchResult>();
         var cookie = new byte[0]; // För paginering
-        var pageSize = input.PageSize > 0 ? input.PageSize : 500; // Standard om ej angivet
+        var pageSize = input.PageSize > 0 ? input.PageSize : 500;
         var pageControl = new LdapPagedResultsControl(pageSize, true);
 
         int pageCounter = 0;
@@ -63,9 +64,7 @@ public class LDAP
                     BatchSize = pageSize
                 };
                 conn.Constraints = searchConstraints;
-
-                var controls = new LdapControl[] { pageControl };
-                conn.SetOption(LdapConnection.LdapOptionClientControls, controls);
+                conn.Constraints.SetControls(pageControl); // Rätt sätt att lägga till kontroll
 
                 var searchQueue = conn.Search(
                     input.SearchBase,
@@ -94,10 +93,10 @@ public class LDAP
 
                 Console.WriteLine($"✅ Page {pageCounter} returned {resultsOnPage} objects");
 
-                var response = (LdapSearchResultDone)searchQueue.GetResponse();
-                var pagedControlResponse = (LdapPagedResultsResponse)response.GetResponseControls()[0];
+                var response = searchQueue.GetResponse() as LdapResponse; // Korrekt ersättning för LdapSearchResultDone
+                var pagedControlResponse = response?.GetControls()[0] as LdapPagedResultsResponse;
 
-                cookie = pagedControlResponse.Cookie;
+                cookie = pagedControlResponse?.Cookie ?? Array.Empty<byte>();
                 pageControl = new LdapPagedResultsControl(pageSize, true, cookie);
 
             } while (cookie.Length > 0);
@@ -111,6 +110,7 @@ public class LDAP
         Console.WriteLine($"✅ Total objects retrieved: {searchResults.Count}");
         return new Result(true, null, searchResults);
     }
+
 
     /// <summary>
     /// Converts requested attributes into an array.
