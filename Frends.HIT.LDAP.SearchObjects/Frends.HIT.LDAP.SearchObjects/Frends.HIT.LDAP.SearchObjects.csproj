@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFrameworks>net6.0</TargetFrameworks>
+	<Version>1.0.6</Version>
+	<Authors>HIT</Authors>
+	<Copyright>HIT</Copyright>
+	<Company>HIT</Company>
+	<Product>Frends.HIT.LDAP</Product>
+	<PackageTags>Frends;HIT;LDAP</PackageTags>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	<Description>Search objects from Active Directory.</Description>
+	<PackageProjectUrl>https://frends.com/</PackageProjectUrl>
+	<RepositoryUrl>https://github.com/Hoglandets-IT/Frends.HIT.LDAP</RepositoryUrl>
+  </PropertyGroup>
+  
+  <ItemGroup>
+	  <None Include="FrendsTaskMetadata.json" Pack="true" PackagePath="/">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+  </ItemGroup>
+	
+  <ItemGroup>
+    <PackageReference Include="Novell.Directory.Ldap.NETStandard" Version="3.6.0" />
+  </ItemGroup>
+</Project>
