@@ -2,7 +2,7 @@
 
   <PropertyGroup>
 	<TargetFrameworks>net6.0</TargetFrameworks>
-	<Version>1.0.6</Version>
+	<Version>1.0.8</Version>
 	<Authors>HIT</Authors>
 	<Copyright>HIT</Copyright>
 	<Company>HIT</Company>
