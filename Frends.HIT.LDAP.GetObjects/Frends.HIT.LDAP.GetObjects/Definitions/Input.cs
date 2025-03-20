@@ -70,8 +70,15 @@ public class Input
     public bool TypesOnly { get; set; }
 
     /// <summary>
-    /// List of attributes to retrieve along with an option to choose om deras returtyp.
-    /// Exempel: Key = "objectGUID", ReturnType = AttributeReturnType.Byte
+    /// The number of results per page in paginated LDAP searches.
+    /// Default: 500 (optimal balans mellan prestanda och serverbelastning).
+    /// </summary>
+    /// <example>500</example>
+    [DefaultValue(500)]
+    public int PageSize { get; set; } = 500;
+
+    /// <summary>
+    /// List of attributes to retrieve along with an option to choose return type.
     /// </summary>
     public AttributeDefinition[] Attributes { get; set; } = Array.Empty<AttributeDefinition>();
 }
